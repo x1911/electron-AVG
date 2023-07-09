@@ -1,0 +1,49 @@
+html {
+    touch-action: manipulation;
+    --scrollbarBG: #222;
+    --thumbBG: #566268;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    -webkit-user-select:none;
+    user-select: none;
+    color: #eae0c7;
+    background: #000;
+    /* font: 12pt/1.6 'AppleSDGothicNeo', 'PingFangHK'，'Helvetica Neue', 'Helvetica'; */
+    font: 16px/1.6 'song','PingFangHK','Helvetica Neue','Helvetica';
+    font-weight: 200;
+    /* position: fixed;
+    top:0;
+    left: 0; */
+    text-rendering: optimizeLegibility;
+font-synthesis: none;
+-moz-font-feature-settings: 'kern';
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+    font-family: song;
+    src: url("../../Assets/Fonts/song.ttf");
+}
+
+.fullscreen{
+    width: 100vw;
+    min-width: 800px;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    overflow: hidden;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    transition: all 1s;
+}

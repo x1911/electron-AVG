@@ -1,0 +1,74 @@
+.dialogue {
+    position: absolute;
+    z-index: 2;
+    left: 5vw;
+    bottom: 60px;
+    width: 80vw;
+    min-width: 720px;
+    height: 120px;
+    padding: 35px 5vw 35px 10vw;
+    background: url('../../Assets/Textures/UI/Main/DialogBox.png');
+    background-size: cover;
+    font-size: 20px;
+    line-height: 1.9;
+}
+
+.rollerName {
+    position: absolute;
+    z-index: 2;
+    left: 10vw;
+    bottom: 260px;
+    width: 587px;
+    height: 50px;
+    padding: 0 0 0 100px;
+    line-height: 42px;
+    font-size: 18px;
+    background: url('../../Assets/Textures/UI/Main/DialogCharacterBox.png');
+    background-size: cover;
+}
+
+@keyframes up {
+    0% { transform: translateY(0);}
+    100% { transform: translateY(-10px);}
+}
+
+.nextIndicator {
+    position: absolute;
+    z-index: 2;
+    right: 30px;
+    bottom: 85px;
+    width: 36px;
+    height: 36px;
+    background: url('../../Assets/Textures/UI/Main/DialogNext.png');
+    background-size: contain;
+    animation: up 0.5s linear 0s infinite alternate;
+}
+
+
+.C_left, .C_mid, .C_right{
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    bottom: -100vh;
+    /* width: 28vw; */
+    /* height: calc(28vw * 1.41); */
+    height: 200vh;
+    /* background-size: 282% 200%; */
+    background-repeat: no-repeat;
+    background-position: center top;
+    /* background-image: url('../../Assets/Resources/Character/3岁刘禅-布衣-得意.png'); */
+    transition: all 0.5s;
+}
+
+.C_left{
+    left: -20vh;
+}
+.C_mid{
+    left: 50%;
+    /* margin: 0 0 0 -14vw; */
+    margin: 0 0 0 -71vh;
+}
+.C_right{
+    left: auto;
+    right: -30vh;
+}
