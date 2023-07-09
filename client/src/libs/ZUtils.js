@@ -1,3 +1,4 @@
+import IF_JSON_Script from "../settings/IF_JSON_Script.js"
 import St_URL from "../settings/St_URL.js"
 
 export default class {
@@ -29,9 +30,7 @@ export default class {
     /**
      * 
      * @param {*} file 
-     * @returns {Array<{
-     * '指令': String,
-     * }>}
+     * @returns {Array<IF_JSON_Script>}
      */
     static async LoadJson(file) {
         try {

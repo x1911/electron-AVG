@@ -16,5 +16,10 @@ export default class{
         // this.character1 = document.createElement('div')
         // this.character2 = document.createElement('div')
         // this.character3 = document.createElement('div')
+
+        this.chooseMenu = document.createElement('div')
+        this.choose1 = document.createElement('div')
+        this.choose2 = document.createElement('div')
+        this.choose3 = document.createElement('div')
     }
 }

@@ -1,0 +1,34 @@
+.chooseMenu {
+    position: absolute;
+    z-index: 3;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 85vh;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0 0 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: all 0.5s;
+}
+
+.chooseMenu div {
+    /* background: url('../../Assets/Textures/UI/Main/OptionBox0.png') no-repeat left center; */
+    /* background-size: cover; */
+    
+    border-image: url('../../Assets/Textures/UI/Main/OptionBox0.png') round;
+    border-image-slice: 60 60 30 80 fill;
+    border-image-width: 42px;
+    border-width: 30px 60px 15px 80px;
+    border-style: solid;
+    padding: 0px 20px 0px 10vw;
+    margin: 10px auto 0;
+    width: 800px;
+    font-size: 18px;
+    /* border-image: url('../../Assets/Textures/UI/Main/OptionBox0.png')  27 / 35px; */
+    /* border-image-slice: 100%; */
+    /* border-image-outset: 0; */
+    /* border: 30px solid transparent; */
+    /* border-top-width: 40px; */
+}

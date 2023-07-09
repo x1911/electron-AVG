@@ -15,18 +15,24 @@ export default class extends U_System {
     }
 
     _Init() {
-        const { bg, bg1, bg2, dialogue, rollerName, nextIndicator, character1, character2, character3 } = this.stage
+        const { bg, bg1, bg2, dialogue, rollerName, nextIndicator, 
+            character1, character2, character3, chooseMenu, choose1, choose2, choose3 } = this.stage
         const arr = [bg, bg1, bg2]
         for (let i of arr) {
             i.classList = ['fullscreen']
         }
         document.body.appendChild(bg)
 
-        const ar2 = [bg1, bg2, dialogue, rollerName, nextIndicator, character1, character2, character3]
+        const ar2 = [bg1, bg2, dialogue, rollerName, nextIndicator, 
+            character1, character3, character2, chooseMenu]
         for (let i of ar2) {
             bg.appendChild(i)
         }
 
+        const ar3 = [choose1, choose2, choose3]
+        for( let i of ar3 ) chooseMenu.appendChild( i )
+
+        chooseMenu.className = 'chooseMenu'
         dialogue.className = 'dialogue'
         rollerName.className = 'rollerName'
         nextIndicator.className = 'nextIndicator'

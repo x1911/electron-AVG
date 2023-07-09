@@ -9,6 +9,25 @@
 
 </head>
 <body>
-    <script src="Main.js" type="module"></script>
+    <!-- <script src="Main.js" type="module"></script> -->
+    <script type="module">
+
+        async function start() {
+            // const ll = await import('./src/libs/basic/ThreeLoad.js')
+            // const lo = new ll.default({
+                // local: true
+            // })
+            // await lo.start()
+            const ll = await import('./src/libs/basic/Three.min.js')
+            window['THREE'] = ll.default
+
+            const v = '?' + (new Date().getDay())
+            await import('./main.js' + v )
+        }
+
+        window.onload = start
+
+    </script>
+
 </body>
 </html>

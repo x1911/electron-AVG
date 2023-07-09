@@ -2,12 +2,14 @@
 
 import M_Game from "./src/M_Game.js"
 import ZUtils from "./src/libs/ZUtils.js"
+import DataBus from "./src/settings/DataBus.js"
+const DB = new DataBus()
 
 class Main {
     constructor() {
 
 
-
+        window['DB'] = DB
         new M_Game()
 
 

@@ -1,4 +1,5 @@
 import U_Entity from "../frame/U_Entity.js";
+import IF_JSON_Script from "../settings/IF_JSON_Script.js";
 import C_Dialogue from "./C_Dialogue.js";
 import C_Stage from "./C_Stage.js";
 
@@ -17,9 +18,10 @@ export default class {
 
     /**
      * @param {String} roller 
-     * @param {String} speech 
+     * @param {IF_JSON_Script['内容']} speech 
      */
     async ShowDialogu(roller, speech) {
+        // console.log('开始对白', roller)
         const { bg1, bg2, dialogue, rollerName, nextIndicator } = this.st
         const arr = [dialogue, rollerName]
         for (let i of arr) {
@@ -30,10 +32,6 @@ export default class {
         // dialogue.innerText = speech
         await this._StartTypeing(speech)
 
-        
-        
-
-        console.log('结束对白')
         // debugger
     }
 
@@ -77,7 +75,7 @@ export default class {
 
 
     SpeedUpSpeech() {
-        console.log('按下')
+        // console.log('按下')
         this.dia.cap = 10
         this.dia.isNextClick = true
         this.dia.isSpeedUp = true
