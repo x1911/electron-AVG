@@ -18,13 +18,18 @@
     z-index: 2;
     left: 10vw;
     bottom: 260px;
-    width: 587px;
+    /* width: 387px; */
+    width: 220px;
     height: 50px;
     padding: 0 0 0 100px;
     line-height: 42px;
     font-size: 18px;
-    background: url('../../Assets/Textures/UI/Main/DialogCharacterBox.png');
-    background-size: cover;
+    /* background: url('../../Assets/Textures/UI/Main/DialogCharacterBox.png'); */
+    /* background-size: cover; */
+
+    border-image: url('../../Assets/Textures/UI/Main/DialogCharacterBox.png') round;
+    border-image-slice: 50 50 50 50 fill;
+    border-image-width: 50px;
 }
 
 @keyframes up {
