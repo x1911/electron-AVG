@@ -1,6 +1,7 @@
 module.exports = {
   packagerConfig: {
     asar: true,
+    icon: 'client/Assets/Textures/UI/Icon',  // no file extension required
   },
   rebuildConfig: {},
   makers: [

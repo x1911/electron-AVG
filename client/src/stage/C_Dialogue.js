@@ -13,5 +13,7 @@ export default class{
         this.isSpeaking = false
         /** 是否加速 */
         this.isSpeedUp = false
+        /** 是否打断循环 */
+        this.isBreakLoop = false
     }
 }

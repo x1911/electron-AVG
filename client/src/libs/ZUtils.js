@@ -5,13 +5,16 @@ export default class {
 
     /**
      * 
-     * @param {function(String)} callback 
+     * @param {function( Array<IF_JSON_Script> )} callback 
+     * @returns {HTMLInputElement}
      */
-    static async LoadJsonBtn(callback) {
+    static LoadJsonBtn(callback) {
+    
         const inp = document.createElement('input')
+        // inp.value = '载入脚本'
         inp.type = 'file'
         inp.accept = "file/*,.json"
-        document.body.appendChild(inp)
+        // document.body.appendChild(inp)
         inp.onchange = async e => {
 
             // for (const f of e.currentTarget.files) {
@@ -24,6 +27,8 @@ export default class {
             // debugger
             callback(langs)
         }
+        
+        return inp
     }
 
 

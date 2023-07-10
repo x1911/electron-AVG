@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>浮生若梦.蜀宫</title>
     <link rel="stylesheet" href="./src/css/main.css">
 
 </head>
@@ -21,8 +21,9 @@
             const ll = await import('./src/libs/basic/Three.min.js')
             window['THREE'] = ll.default
 
-            const v = '?' + (new Date().getDay())
-            await import('./main.js' + v )
+            // const v = '?' + (new Date().getDay())
+            const v = ''
+            await import('./Main.js' + v )
         }
 
         window.onload = start

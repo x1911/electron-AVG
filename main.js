@@ -1,17 +1,23 @@
 // electron 模块可以用来控制应用的生命周期和创建原生浏览窗口
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, Tray, nativeImage } = require('electron')
 const path = require('path')
 
 const createWindow = () => {
     // 创建浏览窗口
     const mainWindow = new BrowserWindow({
-        width: 800,
+        width: 960,
         height: 600,
+        title: "AVG",
+        icon: "assets/logo/app_icon.ico",
         webPreferences: {
             webSecurity: false,
             // allowRunningInsecureContent: true,
             preload: path.join(__dirname, 'preload.js'),
+            icon: path.join(__dirname, 'client/Assets/Textures/UI/Icon.png'),
+            accessibleTitle: 'AVG',
+
             nodeIntegration: true,  // 读取外部文件配置
+            nodeIntegrationInWorker: true,  // 多线程
             contextIsolation: false,
             enableRemoteModule: true
         }
@@ -21,7 +27,7 @@ const createWindow = () => {
     mainWindow.loadFile('./client/index.html')
 
     // 打开开发工具
-    mainWindow.webContents.openDevTools()
+    mainWindow.webContents.openDevTools({ mode: 'detach' })
 }
 
 // 这段程序将会在 Electron 结束初始化
@@ -35,6 +41,12 @@ app.whenReady().then(() => {
         // 点击托盘图标时通常会重新创建一个新窗口
         if (BrowserWindow.getAllWindows().length === 0) createWindow()
     })
+
+    // 任务栏图标
+    // const url = path.join(__dirname, 'client/Assets/Textures/UI/Icon.png')
+    // const icon = nativeImage.createFromPath(url)
+    // new Tray(icon)
+
 })
 
 // 除了 macOS 外，当所有窗口都被关闭的时候退出程序。 因此, 通常

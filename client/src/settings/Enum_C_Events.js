@@ -20,5 +20,6 @@ export default Object.freeze({
     UI_Number_Count: Symbol(32),   // UI 数字倒数
     UI_SHOW_IOS_RANK: Symbol(32),
 
-    LOAD_JSON_SCRIPT: Symbol(1),
+    UI_MSG: Symbol(1),
+    LOAD_JSON_SCRIPT: Symbol(1),  // 读取脚本
 })

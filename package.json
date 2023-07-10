@@ -1,5 +1,5 @@
 {
-  "name": "zz",
+  "name": "Power and love in dreams",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
@@ -12,12 +12,11 @@
   "build": {
     "extraResources": [
       {
-        "from": "client/Assets/", 
+        "from": "client/Assets/",
         "to": "Assets/"
-      } 
+      }
     ]
   },
-
   "keywords": [],
   "author": "",
   "license": "ISC",

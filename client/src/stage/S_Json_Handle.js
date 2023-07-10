@@ -5,6 +5,7 @@ import ZUtils from "../libs/ZUtils.js";
 import DataBus from "../settings/DataBus.js";
 import Enum_C_Events from "../settings/Enum_C_Events.js";
 import IF_JSON_Script from "../settings/IF_JSON_Script.js";
+import C_Dialogue from "./C_Dialogue.js";
 import C_Stage from "./C_Stage.js";
 import U_Choose_Manager from "./U_Choose_Manager.js";
 import U_Dialogue_Funcs from "./U_Dialogue_Funcs.js";
@@ -20,7 +21,7 @@ export default class extends U_System{
     constructor(e){
         super('JSON handle')
         this.st = e.GetComponent(C_Stage)
-
+        this.diaData = e.GetComponent(C_Dialogue)
         this.dia = new U_Dialogue_Funcs( e )
 
         DB.event?.On( Enum_C_Events.LOAD_JSON_SCRIPT, this._HandleJsonData, this)
@@ -40,9 +41,17 @@ export default class extends U_System{
      * 
      * @param {Array< IF_JSON_Script >} ans 
      */
+    //  * @param {(function(): void)=} OnEnded 结束时调用 
     async _HandleJsonData(ans){
+        
         for(let i of ans){
-            console.log('1111111-----', i['指令'], i['等待'])
+            if( this.diaData.isBreakLoop ){  // 打断循环功能
+                // debugger
+                U_JSON_Manager.RemoveAll( this.st )
+                DB.event.Dispatch(Enum_C_Events.UI_MSG, '游戏停止')
+                break
+            } 
+            // console.log('1111111-----', i['指令'], i['角色'])
             const time = parseFloat( i['等待'] )
             if( i['指令'] === '清空') U_JSON_Manager.RemoveAll( this.st )
             else if( i['指令'] === '文字') await this.dia.ShowDialogu( i['角色'], i['内容'])
@@ -56,6 +65,6 @@ export default class extends U_System{
                 U_JSON_Manager.HideDialogue( this.st )
                 U_Choose_Manager.ShowChooseMenu( this.st, i['内容'])
             } 
-        }
+        }// for
     }
 }

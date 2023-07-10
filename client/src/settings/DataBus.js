@@ -6,8 +6,9 @@ export default class {
         if (instance) return instance
         instance = this
 
+        this.DEBUG = true
+        
         this.event = CustomEventListener
-
 
         this.setting = {  //设置
             HighResolution: false,

@@ -1,0 +1,44 @@
+.errMsg{
+    position: absolute;
+    top: 5vh;
+    right: 30vw;
+    background: red;
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 8px;
+    display: none;
+}
+#debug{
+    position: absolute;
+    width: 120px;
+    height: 99vh;
+    padding: 10px 30px;
+    /* overflow-y: scroll; */
+    background: rgba(0,0,0, 0.8);
+    transition: all 0.5s;
+}
+#debug .close{
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    top: 20px;
+    right: -45px;
+    background: #111;
+    text-align: center;
+}
+#debug input{
+    padding: 6px;
+    display: block;
+    background: #111;
+    border: 1px solid #666;
+    border-radius: 20px;
+}
+
+#debug button{
+    margin: 10px 0 0 0;
+    padding: 10px 20px;
+    background: #111;
+    color: #fff;
+    border-radius: 20px;
+    border: 1px solid #666
+}
