@@ -59,6 +59,7 @@ export default class extends U_System {
             // U_Change_BG_Funcs.ChangeBG( this.cst, '大城门-夜晚', Enum_BGChangeTypes.GradientTopIn)
             // DB.event.Dispatch(Enum_C_Events.CHANGE_BG, '大城门-黄昏', Enum_BGChangeTypes.FadeInOut)
         })
+        
 
         // this._AddBtn('显示错误', () => DB.event.Dispatch(Enum_C_Events.UI_MSG, 'askdfhsakfh'))
     }
