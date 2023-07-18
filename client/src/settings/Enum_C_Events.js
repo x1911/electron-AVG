@@ -22,4 +22,6 @@ export default Object.freeze({
 
     UI_MSG: Symbol(1),
     LOAD_JSON_SCRIPT: Symbol(1),  // 读取脚本
+
+    // CHANGE_BG: Symbol(1),   // 改变背景
 })

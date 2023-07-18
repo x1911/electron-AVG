@@ -7,6 +7,7 @@ import Enum_C_Events from "../settings/Enum_C_Events.js";
 import IF_JSON_Script from "../settings/IF_JSON_Script.js";
 import C_Dialogue from "./C_Dialogue.js";
 import C_Stage from "./C_Stage.js";
+import U_Change_BG_Funcs from "./U_Change_BG_Funcs.js";
 import U_Choose_Manager from "./U_Choose_Manager.js";
 import U_Dialogue_Funcs from "./U_Dialogue_Funcs.js";
 import U_JSON_Manager from "./U_JSON_Manager.js";
@@ -57,7 +58,6 @@ export default class extends U_System{
             else if( i['指令'] === '文字') await this.dia.ShowDialogu( i['角色'], i['内容'])
             else if( i['指令'] === '立绘') U_JSON_Manager.ShowCharacter( this.st, i['位置'], i['资源'])
             // - 移动立绘
-            else if( i['指令'] === '背景') U_JSON_Manager.ShowBg( this.st, i['资源'])
             else if( i['指令'] === '声音') await U_Sound_Manager.PlaySound( i['资源'], time)
             else if( i['指令'] === '音乐') U_Sound_Manager.PlayMusic( i['资源'])
             // else if( i['指令'] === '移动背景') 
@@ -65,6 +65,9 @@ export default class extends U_System{
                 U_JSON_Manager.HideDialogue( this.st )
                 U_Choose_Manager.ShowChooseMenu( this.st, i['内容'])
             } 
+
+            else if( i['指令'] === '背景') U_JSON_Manager.ShowBg( this.st, i['资源'])
+            else if( i['指令'] === '切换背景') U_Change_BG_Funcs.ChangeBG( this.st, i['资源'], i['类型'])
         }// for
     }
 }

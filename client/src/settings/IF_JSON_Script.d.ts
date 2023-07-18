@@ -1,7 +1,8 @@
+import Enum_BGChangeTypes from './Enum_BGChangeTypes.js'
 
 export default class {
 
-        '指令': '清空' | '文字' | '立绘' | '背景' | '选项' | '声音' | '音乐' | '移动背景'
+        '指令': '清空' | '文字' | '立绘' | '背景' | '选项' | '声音' | '音乐' | '切换背景' | '移动背景'
 
         '角色': string
 
@@ -18,5 +19,6 @@ export default class {
         
         '内容': string | Array<{ '选项': string, '脚本': string }>
 
-
+        // 给切换背景用的类型 Enum_BGChangeTypes
+        "类型": string
 }
