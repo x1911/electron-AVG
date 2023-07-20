@@ -15,7 +15,7 @@ export default class {
      * 
      * @param {C_Stage} cst 
      * @param {string} bgFileName 
-     * @param {@enum<Enum_BGChangeTypes>} type 
+     * @param {enum<Enum_BGChangeTypes>} type 
      */
     static async ChangeBG(cst, bgFileName, type){
         if( !st ) st = cst 
