@@ -69,7 +69,7 @@ export default class extends U_System{
 
             else if( i['指令'] === '背景') U_JSON_Manager.ShowBg( this.st, i['资源'])
             else if( i['指令'] === '切换背景') U_Change_BG_Funcs.ChangeBG( this.st, i['资源'], i['类型'])
-            else if( i['指令'] === '背景特效') U_Effect_BG_Funcs.BGEffect( this.st, i['资源'], i['类型'], i['数值'], i['数值2'])
+            else if( i['指令'] === '背景特效') U_Effect_BG_Funcs.BGEffect( this.st, i['资源'], i['类型'], i['数值'])
         }// for
     }
 }

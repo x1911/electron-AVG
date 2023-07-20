@@ -22,7 +22,6 @@ export default class {
         // 给切换背景用的类型 Enum_BGChangeTypes
         "类型": string
         
-        // 给背景特效使用，定制不同的数值
+        // 给背景特效使用，定制不同的数值，详见说明
         "数值": [number]
-        "数值2": [number]
 }

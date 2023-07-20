@@ -7,6 +7,7 @@ import Enum_C_Events from "../settings/Enum_C_Events.js";
 import C_Dialogue from "../stage/C_Dialogue.js";
 import C_Stage from "../stage/C_Stage.js";
 import U_Change_BG_Funcs from "../stage/U_Change_BG_Funcs.js";
+import U_Effect_BG_Funcs from "../stage/U_Effect_BG_Funcs.js";
 import C_DEBUG_Menu from "./C_DEBUG_Menu.js";
 import U_DEBUG_BGMenu from "./U_DEBUG_BGMenu.js";
 const DB = new DataBus()
@@ -60,6 +61,9 @@ export default class extends U_System {
             // DB.event.Dispatch(Enum_C_Events.CHANGE_BG, '大城门-黄昏', Enum_BGChangeTypes.FadeInOut)
         })
         
+        this._AddBtn('背景特效', () => {
+            U_Effect_BG_Funcs.BGEffect(this.cst, null, Enum_BGChangeTypes.Scale, [8, 1, 3])
+        })
 
         // this._AddBtn('显示错误', () => DB.event.Dispatch(Enum_C_Events.UI_MSG, 'askdfhsakfh'))
     }
