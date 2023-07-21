@@ -16,7 +16,75 @@ export default class {
         this.dia = e.GetComponent(C_Dialogue)
     }
 
+/**
+ * 显示独白
+ * @param {IF_JSON_Script['内容']} text 
+ * @param {IF_JSON_Script['位置']} pos 
+ */
+    async ShowText(text, pos = '中'){
+        const {textTitle, nextIndicator, mask} = this.st
+        mask.style.opacity = '1'
+        textTitle.style.opacity = '1'
+        let top = '50%'
+        let bottom = 'auto'
+        if( pos === '上'){
+            top = '20%'
+            bottom = 'auto'
+        }
+        else if( pos === '下'){
+            top = 'auto'
+            bottom = '20%'
+        }
+        textTitle.style.top = top
+        textTitle.style.bottom = bottom
+        nextIndicator.style.opacity = '0'
+
+        // textTitle.innerText = text
+        this.dia.currentCount = 0
+        this.dia.currentText = text
+        this.dia.isNextClick = false
+        this.dia.isSpeaking = true
+        this.TypingTitle()
+
+        return new Promise(res => {
+            this.dia.inter = setInterval(() => {
+                if (this.dia.currentCount < this.dia.currentText.length) return
+                nextIndicator.style.opacity = '1'
+                this.dia.isSpeaking = false
+                if (!this.dia.isNextClick && !this.dia.isSpeedUp) return  // 没有按下next也无加速的情况
+                clearInterval(this.dia.inter)
+                
+                mask.style.opacity = '0'
+                textTitle.style.opacity = '0'
+                nextIndicator.style.opacity = '0'
+                res()
+            }, 300)
+        })
+    }
+
+
+    TypingTitle() {
+        const { currentCount, currentText, cap } = this.dia
+        if (currentCount < currentText.length) {
+            this.dia.currentCount += 1
+            const text = currentText.slice(0, this.dia.currentCount)
+            this.st.textTitle.innerText = text + '_'
+            this.dia.timer = setTimeout(this.TypingTitle.bind(this), cap)
+            return
+        }
+        this.st.textTitle.innerText = currentText
+        clearTimeout(this.dia.timer)
+    }
+
+
+
+
+
+
+
+
     /**
+     * 显示对话
      * @param {String} roller 
      * @param {IF_JSON_Script['内容']} speech 
      */
@@ -30,13 +98,13 @@ export default class {
         }
         rollerName.innerText = roller
         // dialogue.innerText = speech
-        await this._StartTypeing(speech)
+        await this._StartSpeechTypeing(speech)
 
         // debugger
     }
 
 
-    _StartTypeing(speech) {
+    _StartSpeechTypeing(speech) {
         const { nextIndicator } = this.st
         this.dia.currentCount = 0
         this.dia.currentText = speech
@@ -90,7 +158,4 @@ export default class {
         }
     }
 
-    // ClickNext() {
-    //     console.log('点击')
-    // }
 }

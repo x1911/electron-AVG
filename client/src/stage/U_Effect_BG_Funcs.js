@@ -11,8 +11,22 @@ const DB = new DataBus()
 let st
 
 export default class{
+
+    /** 关闭背景特效
+     * @param {C_Stage} cst 
+     */
+    static async CloseEffect(cst){
+        const {bg1, mask} = cst
+        mask.style.opacity = '0'
+        bg1.style.transform = 'none'
+        bg1.style.transition = 'all 1s'
+        await core.sleep(1)
+        bg1.style.transition = 'none'
+    }
+
+    
         /**
-     * 
+     * 背景特效增加
      * @param {C_Stage} cst 
      * @param {string} bgFileName 背景图片，可以为空
      * @param {Enum_BGChangeTypes.} type 变换类型

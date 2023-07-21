@@ -1,8 +1,20 @@
 // @ts-check
+import core from "../libs/core.js";
 import St_URL from "../settings/St_URL.js";
 import C_Stage from "./C_Stage.js";
 
 export default class {
+    /**
+     * 隐藏所有 立绘
+    * @param {C_Stage} st 
+     */
+    static async HideCharacter(st){
+        const { character1, character2, character3, dialogue, rollerName, nextIndicator } = st
+        for(let cc of [character1, character2, character3, dialogue, rollerName, nextIndicator]){
+            cc.style.opacity = '0'
+        }
+        await core.sleep(0.5)
+    }
 
     /**
      * 指令 立绘
@@ -10,7 +22,7 @@ export default class {
      * @param {'左' | '中' | '右'} pos  位置 左 / 中 / 右
      * @param {String} url 
      */
-    static ShowCharacter(st, pos, url) {
+    static async ShowCharacter(st, pos, url) {
         const { character1, character2, character3 } = st
         let cc = character1
         if (pos === '中') cc = character2
@@ -25,6 +37,7 @@ export default class {
         cc.style.opacity = '1'
         // }, 200)
         // debugger
+        await core.sleep(0.5)
     }
 
 
@@ -43,9 +56,10 @@ export default class {
      * @param {C_Stage} st 
      */
     static RemoveAll(st) {
-        const { bg1, bg2, dialogue, rollerName, nextIndicator,
+        const { bg1, bg2, dialogue, rollerName, nextIndicator, textTitle, mask,
             character1, character2, character3, chooseMenu } = st
-        const arr = [bg1, bg2, dialogue, rollerName, nextIndicator, chooseMenu]
+        const arr = [bg1, bg2, dialogue, rollerName, nextIndicator,
+            textTitle, mask, chooseMenu, textTitle]
         for (let i of arr) {
             // i.style.display = 'none'
             i.style.opacity = '0'

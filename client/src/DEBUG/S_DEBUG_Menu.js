@@ -34,6 +34,11 @@ export default class extends U_System {
         U_DEBUG_BGMenu.MakeErrMsg(errMsg)  // 设置错误提示信息
         U_DEBUG_BGMenu.MakeBG(bgMenu, closeBtn)  // 设置debug
 
+        // 错误按钮
+        this._AddBtn('停止游戏后才能载入新脚本', () =>{
+            this.diaData.isBreakLoop = true
+            DB.event.Dispatch(Enum_C_Events.UI_MSG, '游戏即将在对话结束后停止')   
+        })
 
         // 读取按钮
         this.debug.loadScriptBtn = ZUtils.LoadJsonBtn(e => {
@@ -45,11 +50,7 @@ export default class extends U_System {
         bgMenu.appendChild(vv)
         bgMenu.appendChild(this.debug.loadScriptBtn)  // 加入到debug menu
 
-        // 错误按钮
-        this._AddBtn('停止游戏后才能载入新脚本', () =>{
-            this.diaData.isBreakLoop = true
-            DB.event.Dispatch(Enum_C_Events.UI_MSG, '游戏即将在对话结束后停止')   
-        })
+
         
         
         this._AddBtn('切换背景', () => {
@@ -65,6 +66,7 @@ export default class extends U_System {
             U_Effect_BG_Funcs.BGEffect(this.cst, null, Enum_BGChangeTypes.Scale, [8, 1, 3])
         })
 
+        this._AddBtn('重载游戏', () => window.location.reload())
         // this._AddBtn('显示错误', () => DB.event.Dispatch(Enum_C_Events.UI_MSG, 'askdfhsakfh'))
     }
 

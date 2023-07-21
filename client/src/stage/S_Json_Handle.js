@@ -56,8 +56,10 @@ export default class extends U_System{
             // console.log('1111111-----', i['指令'], i['角色'])
             const time = parseFloat( i['等待'] )
             if( i['指令'] === '清空') U_JSON_Manager.RemoveAll( this.st )
-            else if( i['指令'] === '文字') await this.dia.ShowDialogu( i['角色'], i['内容'])
-            else if( i['指令'] === '立绘') U_JSON_Manager.ShowCharacter( this.st, i['位置'], i['资源'])
+            else if( i['指令'] === '文字') await this.dia.ShowText( i['内容'], i['位置'] )
+            else if( i['指令'] === '对话') await this.dia.ShowDialogu( i['角色'], i['内容'])
+            else if( i['指令'] === '立绘') await U_JSON_Manager.ShowCharacter( this.st, i['位置'], i['资源'])
+            else if( i['指令'] === '隐藏立绘') await U_JSON_Manager.HideCharacter( this.st )
             // - 移动立绘
             else if( i['指令'] === '声音') await U_Sound_Manager.PlaySound( i['资源'], time)
             else if( i['指令'] === '音乐') U_Sound_Manager.PlayMusic( i['资源'])
@@ -68,8 +70,8 @@ export default class extends U_System{
             } 
 
             else if( i['指令'] === '背景') U_JSON_Manager.ShowBg( this.st, i['资源'])
-            else if( i['指令'] === '切换背景') U_Change_BG_Funcs.ChangeBG( this.st, i['资源'], i['类型'])
-            else if( i['指令'] === '背景特效') U_Effect_BG_Funcs.BGEffect( this.st, i['资源'], i['类型'], i['数值'])
+            else if( i['指令'] === '切换背景') await U_Change_BG_Funcs.ChangeBG( this.st, i['资源'], i['类型'])
+            else if( i['指令'] === '背景特效') await U_Effect_BG_Funcs.BGEffect( this.st, i['资源'], i['类型'], i['数值'])
         }// for
     }
 }

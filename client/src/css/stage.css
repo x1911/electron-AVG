@@ -1,11 +1,28 @@
+.textTitle{
+    position: absolute;
+    z-index: 3;
+    left: 50%;
+    top: 50%;
+    width: 600px;
+    min-height: 30px;
+    margin: -15px 0 0 -300px;
+    font-size: 20px;
+    color: #f1f1f1;
+    background: transparent;
+}
+.mask{
+    background: rgba(0,0,0,0.6);
+    z-index: 2;
+}
+
 .dialogue {
     position: absolute;
     z-index: 2;
     left: 5vw;
-    bottom: 60px;
+    bottom: 20px;
     width: 80vw;
     min-width: 720px;
-    height: 120px;
+    height: 110px;
     padding: 35px 5vw 35px 10vw;
     background: url('../../Assets/Textures/UI/Main/DialogBox.png');
     background-size: cover;
@@ -17,7 +34,7 @@
     position: absolute;
     z-index: 2;
     left: 10vw;
-    bottom: 260px;
+    bottom: 200px;
     /* width: 387px; */
     width: 220px;
     height: 50px;
@@ -67,6 +84,7 @@
 
 .C_left{
     left: -20vh;
+    transform: scaleX(-1);
 }
 .C_mid{
     left: 50%;

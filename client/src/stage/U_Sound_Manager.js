@@ -39,7 +39,7 @@ export default class {
      * @param {String} name 
     */
    static PlayMusic(name) {
-        console.warn('播放音乐', name)
+        // console.warn('播放音乐', name)
         this.M.pcUrl = St_URL.MusicFolder
         this.M.TypePlay({
             soundType: Enum_PLAY_MODES.MUSIC_LOOP,
