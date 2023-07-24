@@ -1,5 +1,6 @@
 // import fs from 'fs'
 
+import U_ClientSteam from "../libs/U_ClientSteam.js"
 import M_Game from "./src/M_Game.js"
 import ZUtils from "./src/libs/ZUtils.js"
 import DataBus from "./src/settings/DataBus.js"
@@ -12,7 +13,7 @@ class Main {
 
         new M_Game()
 
-
+        U_ClientSteam.CreateSteamBasic()
         // const aa = document.createElement('iframe')
         // aa.src = 'https://c3.dogfightx.com'
         // document.body.appendChild( aa )

@@ -1,6 +1,8 @@
 // electron 模块可以用来控制应用的生命周期和创建原生浏览窗口
 const { app, BrowserWindow, Tray, nativeImage } = require('electron')
 const path = require('path')
+// const steamworks = require('steamworks.js')
+const steam = require('./libs/SteamWorks.js')
 
 const createWindow = () => {
     // 创建浏览窗口
@@ -10,19 +12,20 @@ const createWindow = () => {
         title: "AVG",
         icon: "assets/logo/app_icon.ico",
         webPreferences: {
-            webSecurity: false,
+            // webSecurity: false,
             // allowRunningInsecureContent: true,
             preload: path.join(__dirname, 'preload.js'),
             icon: path.join(__dirname, 'client/Assets/Textures/UI/Icon.png'),
             accessibleTitle: 'AVG',
 
+            contextIsolation: false,
             nodeIntegration: true,  // 读取外部文件配置
             nodeIntegrationInWorker: true,  // 多线程
-            contextIsolation: false,
             enableRemoteModule: true
         }
     })
 
+    steam.SetSteam(mainWindow)
     // 加载 index.html
     mainWindow.loadFile('./client/index.html')
 
@@ -58,4 +61,5 @@ app.on('window-all-closed', () => {
 
 // 在当前文件中你可以引入所有的主进程代码
 // 也可以拆分成几个文件，然后用 require 导入。
-
+steam.Start()   // 启动steam
+// steamworks.electronEnableSteamOverlay()
