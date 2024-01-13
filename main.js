@@ -1,6 +1,7 @@
 // electron 模块可以用来控制应用的生命周期和创建原生浏览窗口
 const { app, BrowserWindow, Tray, nativeImage } = require('electron')
 const path = require('path')
+if (require('electron-squirrel-startup')) app.quit();
 // const steamworks = require('steamworks.js')
 const steam = require('./libs/SteamWorks.js')
 
@@ -18,6 +19,7 @@ const createWindow = () => {
             icon: path.join(__dirname, 'client/Assets/Textures/UI/Icon.png'),
             accessibleTitle: 'AVG',
 
+            
             contextIsolation: false,
             nodeIntegration: true,  // 读取外部文件配置
             nodeIntegrationInWorker: true,  // 多线程
@@ -28,6 +30,7 @@ const createWindow = () => {
     steam.SetSteam(mainWindow)
     // 加载 index.html
     mainWindow.loadFile('./client/index.html')
+    // mainWindow.loadURL('https://c3.pzzzr.com/va_arriba/')
 
     // 打开开发工具
     mainWindow.webContents.openDevTools({ mode: 'detach' })

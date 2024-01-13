@@ -22,10 +22,18 @@
             // await lo.start()
             const ll = await import('./src/libs/basic/Three.min.js')
             window['THREE'] = ll.default
-
+            
             // const v = '?' + (new Date().getDay())
             const v = ''
             await import('./Main.js' + v )
+
+            
+            // const ll = await import('https://c3.pzzzr.com/lib/ThreeLoad.js')
+            // const lo = new ll.default({
+                // local: true
+            // })
+            // await lo.Start()
+            // await import('https://c3.pzzzr.com/va_arriba/Main.js' + v )
         }
 
         window.onload = start

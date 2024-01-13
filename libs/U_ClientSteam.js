@@ -4,7 +4,7 @@ const steamworks = require('steamworks.js');
 export default class {
 
     static CreateSteamBasic() {
-        const client = steamworks.init(480);
+        const client = steamworks.init(480);  // 3.10 后版本不能再用 480
         const playerName = client.localplayer.getName()
         const playerLevel = client.localplayer.getLevel()
         const IP = client.localplayer.getIpCountry()
@@ -25,7 +25,10 @@ export default class {
         `
         document.body.appendChild( div )
         
-        div.innerText = playerName + playerLevel + IP
+        div.innerHTML = `
+        用户名 ${playerName} 
+        <br> 玩家等级 ${playerLevel} 
+        <br> 国家 ${IP}`
 
         div.addEventListener('click', function () {
             client.overlay.activateToWebPage('https://www.pzzzr.com/')

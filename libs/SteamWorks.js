@@ -23,9 +23,9 @@ exports.Start = function () {
   console.log('客户端用户名', client.localplayer.getName())
   
   // Tries to activate an achievement
-  // if (client.achievement.activate('ACHIEVEMENT')) {
-    // console.log('打开文档？')
-    // }
+  if (client.achievement.activate('ACHIEVEMENT')) {
+    console.log('打开文档？')
+  }
     
     // client.overlay.activateToWebPage('https://www.example.com/');  // steam客户端首页跳转网页
     
